@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>BABY DREAM — Créations pour enfants</title>
+  <meta name="description" content="BABY DREAM - Créations faites main pour enfants. Gigoteuses, accessoires, articles personnalisés." />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="brand">
+        <div class="logo">BABY<br>DREAM</div>
+        <div style="display:flex;flex-direction:column;justify-content:center">
+          <div style="font-weight:800;font-size:18px">BABY DREAM</div>
+          <div style="font-size:13px;color:var(--muted)">Des créations uniques pour vos petits trésors</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#home">Accueil</a>
+        <a href="#catalog">Nos créations</a>
+        <a href="#about">À propos</a>
+        <a href="#contact" class="cta">Contact</a>
+      </nav>
+    </header>
+
+    <main id="home">
+      <section class="hero">
+        <div>
+          <h1>Des créations uniques pour vos petits trésors</h1>
+          <p class="lead">Articles pour bébés et enfants, faits main avec des tissus doux et sûrs. Personnalisation possible (broderie, choix de tissu).</p>
+          <div style="display:flex;gap:10px;margin-top:10px">
+            <a class="cta" href="#catalog">Voir le catalogue</a>
+            <a class="cta" href="#contact" style="background:transparent;color:var(--muted);border:2px solid var(--muted)">Commander / Sur-mesure</a>
+          </div>
+        </div>
+        <div class="card">
+          <img src="images/product-baleine.jpg" alt="Création BABY DREAM" style="width:100%;border-radius:12px" />
+        </div>
+      </section>
+
+      <section id="catalog">
+        <h2>Nos créations</h2>
+        <p class="lead">Découvrez quelques-unes de nos pièces — chaque création est pensée pour allier confort et tendresse.</p>
+        <div class="grid">
+          <div class="card product">
+            <img src="images/product-baleine.jpg" alt="Gigoteuse baleine" onclick="openLight(event)" />
+            <div class="meta"><div>Gigoteuse Baleine</div><div class="tag">45€</div></div>
+            <p style="color:var(--muted);margin-top:8px">Gigoteuse douce, idéale pour les nuits paisibles des tout-petits.</p>
+          </div>
+
+          <div class="card product">
+            <img src="images/product-licorne.jpg" alt="Robe licorne" onclick="openLight(event)" />
+            <div class="meta"><div>Robe Licorne</div><div class="tag">30€</div></div>
+            <p style="color:var(--muted);margin-top:8px">Robe légère et colorée, parfaite pour les journées de fête.</p>
+          </div>
+
+          <div class="card product">
+            <img src="images/product-tigre.jpg" alt="Coussin tigre" onclick="openLight(event)" />
+            <div class="meta"><div>Coussin Tigre</div><div class="tag">22€</div></div>
+            <p style="color:var(--muted);margin-top:8px">Petit coussin décoratif, confectionné avec soin.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="about">
+        <h2>À propos</h2>
+        <div class="about card">
+          <img src="images/product-licorne.jpg" alt="Atelier BABY DREAM" />
+          <div>
+            <p style="margin-top:0"><strong>BABY DREAM</strong> est une marque artisanale dédiée à l’univers des enfants. Chaque création est réalisée avec amour, passion et le souci du détail, en utilisant des tissus doux et de qualité adaptés aux tout-petits.</p>
+            <p>Notre objectif est d’apporter confort, originalité et magie dans le quotidien des enfants à travers des articles uniques, faits main, et parfois personnalisés.</p>
+            <p style="color:var(--muted)"><strong>BABY DREAM</strong> imagine des créations qui allient tendresse, douceur et rêve.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <h2>Contact</h2>
+        <div class="contact-grid">
+          <div class="card">
+            <p class="lead">Pour une commande ou une question, contactez-nous via nos réseaux sociaux :</p>
+            <div class="socials">
+              <a href="https://www.instagram.com/___baby___dream___?igsh=NGFtbDE1dndoMTNm" target="_blank">Voir sur Instagram</a>
+              <a href="https://www.tiktok.com/@__baby_dream?_t=ZS-8zzV8QpGgIW&_r=1" target="_blank">Voir sur TikTok</a>
+            </div>
+            <p style="margin-top:12px;color:var(--muted)">Réponse généralement sous 24-48h via message privé.</p>
+          </div>
+          <div class="card">
+            <h3 style="margin-top:0">Horaires</h3>
+            <p>Du lundi au vendredi — 9h à 17h</p>
+            <h3>Atelier</h3>
+            <p>[Ville] — Retrait possible sur place</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      © <span id="year"></span> BABY DREAM — Tous droits réservés
+    </footer>
+  </div>
+
+  <div id="lightbox" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);align-items:center;justify-content:center;z-index:60" onclick="closeLight()">
+    <img id="lightboxImg" src="#" style="max-width:90%;max-height:80%;border-radius:12px" />
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    function openLight(e){
+      var src = e.target.getAttribute('src'); var alt = e.target.getAttribute('alt')||'';
+      var lb = document.getElementById('lightbox'); var img = document.getElementById('lightboxImg');
+      img.src = src; img.alt = alt; lb.style.display='flex';
+    }
+    function closeLight(){ document.getElementById('lightbox').style.display='none'; }
+  </script>
+</body>
+</html>
